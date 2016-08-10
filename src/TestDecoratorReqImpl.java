@@ -49,7 +49,7 @@ public class TestDecoratorReqImpl extends DataFlowComponentBase {
         // <rtc-template block="registration">
         
         // Set service consumers to Ports
-        m_PathFollowerPort.registerConsumer("PathFollower", "RTC.PathFollower", m_PathFollowerBase);
+        m_PathFollowerPort.registerConsumer("PathFollower", "RTC.PathFollower", m_PathFollowerBaseDecorator);
         
         // Set CORBA Service Ports
         addPort(m_PathFollowerPort);
@@ -161,13 +161,13 @@ public class TestDecoratorReqImpl extends DataFlowComponentBase {
     		
     		switch(c){
     		case 'f':
-    			this.m_PathFollowerBase._ptr().followPath(path);
+    			System.out.println(this.m_PathFollowerBaseDecorator.followPath(path));
     			
     		case 's':
-    			this.m_PathFollowerBase._ptr().getState(state);
+    			System.out.println(this.m_PathFollowerBaseDecorator.getState(state));
     			
     		case 'b':
-    			this.m_PathFollowerBase._ptr().followPathNonBlock(path);
+    			System.out.println(this.m_PathFollowerBaseDecorator.followPathNonBlock(path));
     			
     		}
     	}catch (Exception e) {
@@ -282,11 +282,13 @@ public class TestDecoratorReqImpl extends DataFlowComponentBase {
 
     // Consumer declaration
     // <rtc-template block="consumer_declare">
-    protected CorbaConsumer<PathFollower> m_PathFollowerBase = new CorbaConsumer<PathFollower>(PathFollower.class);
+    //protected CorbaConsumer<PathFollower> m_PathFollowerBase = new CorbaConsumer<PathFollower>(PathFollower.class);
     /*!
      */
-    protected PathFollower m_PathFollower;
+    //protected PathFollower m_PathFollower;
     
+    protected PathFollowerDecorator m_PathFollowerBaseDecorator = new PathFollowerDecorator();
+    protected PathFollower m_PathFollowerDecorator;
     // </rtc-template>
 
 
