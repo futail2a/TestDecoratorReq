@@ -5,7 +5,7 @@ package RTC;
 * RTC/Velocity3D.java .
 * IDL-to-Javaコンパイラ(ポータブル)、バージョン"3.2"によって生成されました
 * idl/ExtendedDataTypes.idlから
-* 2016年8月9日 13時07分37秒 JST
+* 2016年8月10日 14時37分12秒 JST
 */
 
 public final class Velocity3D implements org.omg.CORBA.portable.IDLEntity

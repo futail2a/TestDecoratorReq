@@ -4,7 +4,7 @@ package RTC;
 * RTC/TimedSize2DHolder.java .
 * IDL-to-Javaコンパイラ(ポータブル)、バージョン"3.2"によって生成されました
 * idl/ExtendedDataTypes.idlから
-* 2016年8月9日 13時07分37秒 JST
+* 2016年8月10日 14時37分12秒 JST
 */
 
 public final class TimedSize2DHolder implements org.omg.CORBA.portable.Streamable

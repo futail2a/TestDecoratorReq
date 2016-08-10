@@ -5,7 +5,7 @@ package RTC;
 * RTC/ActArrayActuatorPosHelper.java .
 * IDL-to-Javaコンパイラ(ポータブル)、バージョン"3.2"によって生成されました
 * idl/InterfaceDataTypes.idlから
-* 2016年8月9日 13時07分37秒 JST
+* 2016年8月10日 14時37分13秒 JST
 */
 
 abstract public class ActArrayActuatorPosHelper

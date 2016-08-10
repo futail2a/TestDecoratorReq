@@ -5,7 +5,7 @@ package RTC;
 * RTC/TimedWCharSeq.java .
 * IDL-to-Javaコンパイラ(ポータブル)、バージョン"3.2"によって生成されました
 * idl/BasicDataType.idlから
-* 2016年8月9日 13時07分36秒 JST
+* 2016年8月10日 14時37分12秒 JST
 */
 
 public final class TimedWCharSeq implements org.omg.CORBA.portable.IDLEntity

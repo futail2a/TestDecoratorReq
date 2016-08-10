@@ -5,7 +5,7 @@ package RTC;
 * RTC/Geometry2D.java .
 * IDL-to-Javaコンパイラ(ポータブル)、バージョン"3.2"によって生成されました
 * idl/ExtendedDataTypes.idlから
-* 2016年8月9日 13時07分36秒 JST
+* 2016年8月10日 14時37分12秒 JST
 */
 
 public final class Geometry2D implements org.omg.CORBA.portable.IDLEntity

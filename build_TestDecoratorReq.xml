@@ -31,7 +31,7 @@
 	</target>
 
 	<target name="compile" depends="idlcompile">
-		<javac srcdir="${source}" destdir="${dest}">
+		<javac encoding="SJIS" srcdir="${source}" destdir="${dest}">
 			<classpath>
 				<fileset dir="${env.RTM_JAVA_ROOT}/jar">
 					<include name="*.jar"/>

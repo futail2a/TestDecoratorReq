@@ -4,7 +4,7 @@ package RTC;
 * RTC/TimedOAPHolder.java .
 * IDL-to-Javaコンパイラ(ポータブル)、バージョン"3.2"によって生成されました
 * idl/ExtendedDataTypes.idlから
-* 2016年8月9日 13時07分37秒 JST
+* 2016年8月10日 14時37分12秒 JST
 */
 
 public final class TimedOAPHolder implements org.omg.CORBA.portable.Streamable
