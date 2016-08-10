@@ -146,10 +146,36 @@ public class TestDecoratorReqImpl extends DataFlowComponentBase {
      * 
      * 
      */
-//    @Override
-//    protected ReturnCode_t onExecute(int ec_id) {
-//        return super.onExecute(ec_id);
-//    }
+    @Override
+    protected ReturnCode_t onExecute(int ec_id) {
+		RTC.Path2D path = null;
+		//path.tm.nsec = 0;
+		//path.tm.sec  = 0;
+		//path.waypoints = new RTC.Waypoint2D[0];
+		
+		RTC.FOLLOWER_STATEHolder state = null;
+
+    	System.out.println("Plese input command: 'f':followPath  's':getState  'b':followPathNoneBlock");
+    	try{
+    		int c = System.in.read();
+    		
+    		switch(c){
+    		case 'f':
+    			this.m_PathFollowerBase._ptr().followPath(path);
+    			
+    		case 's':
+    			this.m_PathFollowerBase._ptr().getState(state);
+    			
+    		case 'b':
+    			this.m_PathFollowerBase._ptr().followPathNonBlock(path);
+    			
+    		}
+    	}catch (Exception e) {
+    			System.out.println("Exception occurred:" + e);
+    	} 	
+    	
+        return super.onExecute(ec_id);
+    }
 
     /***
      *
