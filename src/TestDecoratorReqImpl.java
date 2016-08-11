@@ -12,8 +12,12 @@ import jp.go.aist.rtm.RTC.DataFlowComponentBase;
 import jp.go.aist.rtm.RTC.Manager;
 import jp.go.aist.rtm.RTC.port.CorbaConsumer;
 import jp.go.aist.rtm.RTC.port.CorbaPort;
+import RTC.Path2D;
+import RTC.Point2D;
+import RTC.Pose2D;
 import RTC.ReturnCode_t;
 import RTC.PathFollower;
+import RTC.Waypoint2D;
 
 /*!
  * @class TestDecoratorReqImpl
@@ -148,12 +152,34 @@ public class TestDecoratorReqImpl extends DataFlowComponentBase {
      */
     @Override
     protected ReturnCode_t onExecute(int ec_id) {
-		RTC.Path2D path = null;
-		//path.tm.nsec = 0;
-		//path.tm.sec  = 0;
-		//path.waypoints = new RTC.Waypoint2D[0];
+    	int size = 1;
+		Path2D path = new Path2D();
+		path.tm = new RTC.Time(0,0);
 		
-		RTC.FOLLOWER_STATEHolder state = null;
+		path.waypoints = new Waypoint2D[size];
+		for(int i = 0;i < size;i++) {
+			//HashMap<String, Object> w = (HashMap<String, Object>)param.get(i);
+			//ArrayList<Double> target =  [0.02499949000775814, 0.3749999701976776, 0.8621700603647293];
+			double x = 0.02499949000775814;
+			double y = 0.02499949000775814;
+			double phi = 0.02499949000775814;
+			Double distanceTolerance = 0.5;
+			Double headingTolerance = 0.5;
+			//ArrayList<Integer> timeLimit = [0,0];
+			int sec = 0;
+			int nsec = 0;
+			//ArrayList<Double> maxSpeed = (ArrayList<Double>)w.get("maxSpeed");
+			double maxX = 1.0;
+			double maxY= 0.0;
+			double maxPhi = 1.0;
+			RTC.Time tm = new RTC.Time(sec, nsec);
+			RTC.Velocity2D vel = new RTC.Velocity2D(maxX, maxY, maxPhi);
+
+			path.waypoints[i] = new Waypoint2D(new Pose2D(new Point2D(x, y), phi), distanceTolerance, headingTolerance,
+					new RTC.Time(sec, nsec),  vel);
+			
+		}
+		//RTC.FOLLOWER_STATEHolder state = null;
 
     	System.out.println("Plese input command: 'f':followPath  's':getState  'b':followPathNoneBlock");
     	try{
@@ -161,13 +187,13 @@ public class TestDecoratorReqImpl extends DataFlowComponentBase {
     		
     		switch(c){
     		case 'f':
-    			System.out.println(this.m_PathFollowerBaseDecorator.followPath(path));
+    			System.out.println(this.m_PathFollowerBaseDecorator._ptr().followPath(path));
     			
-    		case 's':
-    			System.out.println(this.m_PathFollowerBaseDecorator.getState(state));
+    		//case 's':
+    		//	System.out.println(this.m_PathFollowerBaseDecorator._ptr().getState(state));
     			
     		case 'b':
-    			System.out.println(this.m_PathFollowerBaseDecorator.followPathNonBlock(path));
+    			System.out.println(this.m_PathFollowerBaseDecorator._ptr().followPathNonBlock(path));
     			
     		}
     	}catch (Exception e) {
