@@ -17,20 +17,23 @@ public class PathFollowerDecorator extends CorbaConsumer<PathFollower>{
 	
 	public PathFollowerDecorator(){
         System.out.println("Decorating Constructor called");
-        m_PathFollowerBase = new CorbaConsumer<PathFollower>(PathFollower.class);
+        this.m_PathFollowerBase = new CorbaConsumer<PathFollower>(PathFollower.class);
 	}
 	public RTC.RETURN_VALUE followPath(RTC.Path2D path) {
         System.out.println("Decorating followPath called");
-        return  m_PathFollowerBase._ptr().followPath(path);
+    	m_PathFollowerBase.setObject(this.m_objref);
+        return  this.m_PathFollowerBase._ptr().followPath(path);
     }
 
     public RTC.RETURN_VALUE getState(RTC.FOLLOWER_STATEHolder state) {
         System.out.println("Decorating getState called");
-        return m_PathFollowerBase._ptr().getState(state);
+    	m_PathFollowerBase.setObject(this.m_objref);
+        return this.m_PathFollowerBase._ptr().getState(state);
     }
 
     public RTC.RETURN_VALUE followPathNonBlock(RTC.Path2D path) {
         System.out.println("Decorating followPathNoneBlack called");
-        return m_PathFollowerBase._ptr().followPathNonBlock(path);
+    	m_PathFollowerBase.setObject(this.m_objref);
+        return this.m_PathFollowerBase._ptr().followPathNonBlock(path);
     }
 }
