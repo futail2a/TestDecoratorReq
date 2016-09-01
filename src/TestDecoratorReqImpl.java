@@ -187,15 +187,15 @@ public class TestDecoratorReqImpl extends DataFlowComponentBase {
     		
     		switch(c){
     		case 'f':
-    			System.out.println(this.m_PathFollowerBaseDecorator._ptr().followPath(path));
+    			System.out.println(this.m_PathFollowerBaseDecorator.followPath(path));
     			break;
     			
     		//case 's':
-    		//	System.out.println(this.m_PathFollowerBaseDecorator._ptr().getState(state));
+    		//	System.out.println(this.m_PathFollowerBaseDecorator.getState(state));
     			//brake;
     			
     		case 'b':
-    			System.out.println(this.m_PathFollowerBaseDecorator._ptr().followPathNonBlock(path));
+    			System.out.println(this.m_PathFollowerBaseDecorator.followPathNonBlock(path));
     			break;
     			
     		}
